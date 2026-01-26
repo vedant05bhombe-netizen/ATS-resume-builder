@@ -26,12 +26,16 @@ public class HollowpurpleApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Apply to all endpoints
-                        .allowedOrigins("http://localhost:5173", "http://localhost:3000", "https://your-frontend-domain.com") // add your live frontend URL
-                        .allowedMethods("*")
-                        .allowedHeaders("*")
-                        .allowCredentials(false);
+                registry.addMapping("/**")
+                        .allowedOrigins(
+                                "http://localhost:5175",    // your local React app
+                                "http://localhost:3000",    // optional
+                                "https://your-production-frontend.com" // optional
+                        )
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // include OPTIONS!
+                        .allowedHeaders("*");
             }
         };
     }
-}
+
+};
