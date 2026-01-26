@@ -449,7 +449,7 @@ export default function ATSResumeChecker() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/api/resume/analyze', {
+      const response = await fetch('https://ats-resume-builder-3gn5.onrender.com/api/resume/analyze', {
         method: 'POST',
         body: formData,
       });

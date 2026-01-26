@@ -17,6 +17,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/resume")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5175")
 public class ResumeController {
 
     private final ResumeAnalysisService resumeAnalysisService;
