@@ -165,6 +165,28 @@ const styles = `
     color: #991b1b;
   }
 
+  .ats-info-message {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .ats-info-icon {
+    color: #2563eb;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .ats-info-text {
+    font-size: 0.875rem;
+    color: #1e40af;
+  }
+
   .ats-button {
     width: 100%;
     background: #9333ea;
@@ -415,6 +437,7 @@ export default function ATSResumeChecker() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [showSlowMessage, setShowSlowMessage] = useState(false);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -441,6 +464,12 @@ export default function ATSResumeChecker() {
     setLoading(true);
     setError(null);
     setResult(null);
+    setShowSlowMessage(false);
+
+    // Show slow message after 8 seconds
+    const slowMessageTimer = setTimeout(() => {
+      setShowSlowMessage(true);
+    }, 8000);
 
     const formData = new FormData();
     formData.append('file', file);
@@ -464,7 +493,9 @@ export default function ATSResumeChecker() {
     } catch (err) {
       setError(err.message || 'Failed to analyze resume. Please try again.');
     } finally {
+      clearTimeout(slowMessageTimer);
       setLoading(false);
+      setShowSlowMessage(false);
     }
   };
 
@@ -549,6 +580,15 @@ export default function ATSResumeChecker() {
               <div className="ats-error">
                 <AlertCircle className="ats-error-icon" size={20} />
                 <p className="ats-error-text">{error}</p>
+              </div>
+            )}
+
+            {loading && showSlowMessage && (
+              <div className="ats-info-message">
+                <Info className="ats-info-icon" size={20} />
+                <p className="ats-info-text">
+                  This is taking longer than usual... Resume analysis can take 10–15 seconds.
+                </p>
               </div>
             )}
 
