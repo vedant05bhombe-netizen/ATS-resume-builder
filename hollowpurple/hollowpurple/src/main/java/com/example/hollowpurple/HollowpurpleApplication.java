@@ -30,7 +30,7 @@ public class HollowpurpleApplication {
                         .allowedOrigins(
                                 "http://localhost:5175",    // your local React app
                                 "http://localhost:3000",    // optional
-                                "https://your-production-frontend.com" // optional
+                                "https://hollowpurplex.netlify.app" // optional
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // include OPTIONS!
                         .allowedHeaders("*");
