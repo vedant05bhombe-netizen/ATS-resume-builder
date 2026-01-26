@@ -14,21 +14,21 @@ public class HollowpurpleApplication {
         SpringApplication.run(HollowpurpleApplication.class, args);
     }
 
-    // ADD THIS BEAN - Required for calling Groq API
+    // Required for calling Groq API
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
 
-    // ADD THIS BEAN - For CORS (allows frontend to call your API)
+    // Global CORS configuration
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:3000", "http://localhost:5173", "*")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                registry.addMapping("/**") // Apply to all endpoints
+                        .allowedOrigins("http://localhost:5173", "http://localhost:3000", "https://your-frontend-domain.com") // add your live frontend URL
+                        .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(false);
             }
