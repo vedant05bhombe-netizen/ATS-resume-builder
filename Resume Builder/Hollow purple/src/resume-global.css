@@ -1,0 +1,63 @@
+
+.resume-root {
+
+  --accent: #000000;
+
+  background: #ffffff;
+  color: #000000;
+}
+
+
+.resume-section {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+
+  font-size: 12pt;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  margin: 16pt 0 8pt;
+  padding-bottom: 3pt;
+}
+.resume-sectionX {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+
+  font-size: 18pt;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  margin: 16pt 0 8pt;
+  padding-bottom: 3pt;
+}
+
+
+.resume-root p,
+.resume-root li,
+.resume-root span,
+.resume-root div {
+  color: #000000;
+}
+
+
+.resume-root ul {
+  margin: 6pt 0 10pt 18pt;
+  padding: 0;
+}
+
+.resume-root li {
+  margin-bottom: 4pt;
+}
+
+
+.resume-root a {
+  color: #000000;
+  text-decoration: none;
+}
+
+
+@media print {
+  .resume-root {
+    --accent: #000000; 
+  }
+}

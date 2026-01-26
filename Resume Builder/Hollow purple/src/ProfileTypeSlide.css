@@ -1,0 +1,57 @@
+.slide-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.slide-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.slide-subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.profile-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.profile-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.profile-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.profile-card:hover {
+  border-color: #111;
+  transform: translateY(-2px);
+}
+
+.profile-card.active {
+  border-color: #111;
+  background: #fafafa;
+}

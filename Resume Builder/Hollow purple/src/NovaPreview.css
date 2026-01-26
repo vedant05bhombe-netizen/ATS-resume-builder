@@ -1,0 +1,67 @@
+.nova-container {
+  font-family: Calibri, Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.4;
+  color: #333;
+}
+
+.nova-document {
+  max-width: 850px;
+  margin: auto;
+  padding: 32px;
+}
+
+.nova-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.nova-header h1 {
+  font-size: 24pt;
+  margin-bottom: 6px;
+  color: #2c3e50;
+}
+
+.nova-contact {
+  font-size: 10.5pt;
+}
+
+section {
+  margin-top: 18px;
+}
+
+h2 {
+  font-size: 14pt;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.nova-item {
+  margin-bottom: 14px;
+}
+
+.nova-item-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.nova-date {
+  font-style: italic;
+  color: #666;
+}
+
+.nova-sub {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+ul {
+  margin-left: 18px;
+}
+
+li {
+  margin-bottom: 4px;
+}

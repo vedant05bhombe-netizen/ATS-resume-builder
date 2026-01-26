@@ -1,0 +1,420 @@
+/* Hollow Purple Help Page Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hollow-help-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+/* Header */
+.hollow-help-header {
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e9d5ff 0%, #d8b4fe 50%, #c084fc 100%);
+  border: 1px solid purple;
+  border-radius: 3px;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.hollow-help-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.hollow-help-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Hero Section */
+.hollow-help-hero {
+  background: linear-gradient(135deg, #e9d5ff 0%, #d8b4fe 50%, #c084fc 100%);
+  padding: 80px 2rem 60px;
+  text-align: center;
+}
+
+.hollow-help-hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #581c87;
+}
+
+.hollow-help-hero-subtitle {
+  font-size: 1.25rem;
+  color: white;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Container */
+.hollow-help-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Sections */
+.hollow-help-section {
+  padding: 80px 2rem;
+  background: white;
+}
+
+.hollow-help-section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.hollow-help-section-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FAQ Section */
+.hollow-help-faq-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.hollow-help-faq-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e9d5ff;
+  transition: all 0.3s;
+}
+
+.hollow-help-faq-item:hover {
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.hollow-help-faq-item h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.hollow-help-faq-item p {
+  color: #6b7280;
+}
+
+/* Contact Section */
+.hollow-help-contact-title {
+  margin-top: 4rem;
+}
+
+.hollow-help-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hollow-help-contact-card {
+  background: #faf5ff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e9d5ff;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.hollow-help-contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.1);
+}
+
+.hollow-help-contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hollow-help-contact-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #7c3aed;
+}
+
+.hollow-help-contact-card p {
+  color: #6b7280;
+}
+
+.hollow-help-contact-response {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Resources Section */
+.hollow-help-resources-section {
+  padding: 80px 2rem;
+  background: white;
+}
+
+.hollow-help-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.hollow-help-resource-card {
+  background: #faf5ff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e9d5ff;
+  transition: all 0.3s;
+}
+
+.hollow-help-resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.1);
+}
+
+.hollow-help-resource-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hollow-help-resource-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #7c3aed;
+}
+
+.hollow-help-resource-card p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.hollow-help-resource-link {
+  color: #9333ea;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+}
+
+.hollow-help-resource-link:hover {
+  text-decoration: underline;
+  color: #7e22ce;
+}
+
+/* Troubleshooting Section */
+.hollow-help-troubleshooting-section {
+  padding: 80px 2rem;
+  background: #faf5ff;
+}
+
+.hollow-help-troubleshooting-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hollow-help-troubleshooting-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e9d5ff;
+}
+
+.hollow-help-troubleshooting-item h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #9333ea;
+}
+
+.hollow-help-troubleshooting-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.hollow-help-troubleshooting-item p,
+.hollow-help-troubleshooting-item li {
+  color: #6b7280;
+}
+
+.hollow-help-troubleshooting-item ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.hollow-help-troubleshooting-item li {
+  margin-bottom: 0.25rem;
+}
+
+/* Feedback Section */
+.hollow-help-feedback-section {
+  background: #faf5ff;
+  padding: 80px 2rem;
+}
+
+.hollow-help-feedback-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid #e9d5ff;
+}
+
+.hollow-help-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.hollow-help-form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.hollow-help-form-group input,
+.hollow-help-form-group select,
+.hollow-help-form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e9d5ff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.hollow-help-form-group input:focus,
+.hollow-help-form-group select:focus,
+.hollow-help-form-group textarea:focus {
+  outline: none;
+  border-color: #9333ea;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+}
+
+.hollow-help-form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.hollow-help-submit-btn {
+  background: #9333ea;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+  width: 100%;
+}
+
+.hollow-help-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+  background: #7e22ce;
+}
+
+.hollow-help-submit-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.hollow-help-success-message {
+  background: #10b981;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.hollow-help-footer {
+  background: #1f2937;
+  color: #9ca3af;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hollow-help-hero-title {
+    font-size: 2rem;
+  }
+
+  .hollow-help-section-title {
+    font-size: 2rem;
+  }
+
+  .hollow-help-feedback-form {
+    padding: 2rem;
+  }
+
+  .hollow-help-nav {
+    padding: 0 1rem;
+  }
+
+  .hollow-help-resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hollow-help-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hollow-help-hero {
+    padding: 60px 1rem 40px;
+  }
+
+  .hollow-help-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hollow-help-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hollow-help-section {
+    padding: 60px 1rem;
+  }
+
+  .hollow-help-feedback-form {
+    padding: 1.5rem;
+  }
+}

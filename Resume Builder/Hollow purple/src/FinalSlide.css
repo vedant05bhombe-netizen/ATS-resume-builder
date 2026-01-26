@@ -1,0 +1,322 @@
+
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f9fafb;
+}
+
+/* ===============================
+   CONTAINER
+   =============================== */
+.finale-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* ===============================
+   LEFT PANEL
+   =============================== */
+.first {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 0 0 320px;
+  max-width: 360px;
+  overflow-y: auto;
+}
+
+.finale-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+
+.templates-panel,
+.themes-panel,
+.download-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.templates-panel h3,
+.themes-panel h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.template-box {
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s;
+}
+
+.template-box:hover {
+  background: #f3f4f6;
+  border-color: #9333ea;
+}
+
+.template-box.selected {
+  background: #9333ea;
+  color: white;
+  border-color: #9333ea;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.theme-grid button {
+  padding: 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: var(--theme-color, #000);
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-transform: capitalize;
+}
+
+.theme-grid button:hover {
+  transform: translateY(-2px);
+}
+
+.theme-grid button.active {
+  border-color: #fbbf24;
+}
+
+
+.download-section p {
+  margin: 0 0 1rem 0;
+  color: #059669;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.xene {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bu {
+  flex: 1;
+ 
+  padding: 0.75rem 1.5rem;
+  background: #9333ea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.bu:hover {
+  background: #7e22ce;
+  transform: translateY(-2px);
+}
+
+.template-selection-section {
+  flex: 1;
+}
+
+.preview-panel {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+  overflow-y: auto;
+}
+
+.roman {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.roman h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.export {
+  padding: 0.625rem 1.5rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.export:hover {
+  background: #059669;
+}
+
+
+.resume-root {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  min-height: 1000px;
+}
+
+
+.previewX {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.Dimxx {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.875rem 1.5rem;
+  background: #9333ea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.Dimxx:hover {
+  background: #7e22ce;
+}
+
+
+@media print {
+  /* Hide everything except resume */
+  body * {
+    visibility: hidden;
+  }
+  
+  .resume-root,
+  .resume-root * {
+    visibility: visible;
+  }
+  
+  .resume-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20mm;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  /* Force colors to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Hide UI elements */
+  .roman,
+  .first,
+  .templates-panel,
+  .themes-panel,
+  .download-section,
+  .Dimxx,
+  .export {
+    display: none !important;
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 768px) {
+  .finale-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .first {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .preview-panel {
+    width: 100%;
+  }
+
+  .resume-root {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .roman {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .export {
+    width: 100%;
+  }
+
+  .xene {
+    flex-direction: column;
+  }
+
+  .bu {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-root {
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  .template-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
