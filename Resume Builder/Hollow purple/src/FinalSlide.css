@@ -1,12 +1,11 @@
-
-  
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: system-ui, -apple-system, sans-serif;
   background: #f9fafb;
 }
@@ -19,6 +18,8 @@ html, body {
   gap: 20px;
   padding: 20px;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* ===============================
@@ -31,14 +32,23 @@ html, body {
   flex: 0 0 320px;
   max-width: 360px;
   overflow-y: auto;
+  max-height: calc(100vh - 40px);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
+
+.first::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
 
 .finale-title {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
+  color: #111827;
 }
-
 
 .templates-panel,
 .themes-panel,
@@ -46,7 +56,8 @@ html, body {
   background: white;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 }
 
 .templates-panel h3,
@@ -54,8 +65,8 @@ html, body {
   margin: 0 0 1rem 0;
   font-size: 1.1rem;
   font-weight: 600;
+  color: #111827;
 }
-
 
 .template-grid {
   display: grid;
@@ -71,6 +82,8 @@ html, body {
   cursor: pointer;
   background: white;
   transition: all 0.2s;
+  font-weight: 500;
+  color: #374151;
 }
 
 .template-box:hover {
@@ -104,19 +117,24 @@ html, body {
 
 .theme-grid button:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .theme-grid button.active {
   border-color: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
 }
 
-
 .download-section p {
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
   color: #059669;
   font-weight: 500;
   font-size: 0.875rem;
   text-align: center;
+}
+
+.download-section p:last-of-type {
+  margin-bottom: 1rem;
 }
 
 .xene {
@@ -128,7 +146,7 @@ html, body {
 
 .bu {
   flex: 1;
- 
+  min-width: 120px;
   padding: 0.75rem 1.5rem;
   background: #9333ea;
   color: white;
@@ -142,10 +160,17 @@ html, body {
 .bu:hover {
   background: #7e22ce;
   transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(147, 51, 234, 0.3);
 }
 
+/* ===============================
+   RIGHT PANEL (PREVIEW)
+   =============================== */
 .template-selection-section {
   flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .preview-panel {
@@ -154,6 +179,7 @@ html, body {
   border-radius: 10px;
   background: #f9fafb;
   overflow-y: auto;
+  max-height: calc(100vh - 40px);
 }
 
 .roman {
@@ -169,6 +195,8 @@ html, body {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
+  color: #111827;
+  text-transform: capitalize;
 }
 
 .export {
@@ -184,9 +212,13 @@ html, body {
 
 .export:hover {
   background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
 }
 
-
+/* ===============================
+   RESUME ROOT
+   =============================== */
 .resume-root {
   max-width: 800px;
   width: 100%;
@@ -194,11 +226,13 @@ html, body {
   padding: 40px;
   background: white;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   min-height: 1000px;
 }
 
-
+/* ===============================
+   MOBILE PREVIEW CONTROLS
+   =============================== */
 .previewX {
   display: flex;
   justify-content: center;
@@ -220,20 +254,23 @@ html, body {
 
 .Dimxx:hover {
   background: #7e22ce;
+  transform: translateY(-2px);
 }
 
-
+/* ===============================
+   PRINT STYLES
+   =============================== */
 @media print {
   /* Hide everything except resume */
   body * {
     visibility: hidden;
   }
-  
+
   .resume-root,
   .resume-root * {
     visibility: visible;
   }
-  
+
   .resume-root {
     position: absolute;
     left: 0;
@@ -245,14 +282,14 @@ html, body {
     box-shadow: none;
     border-radius: 0;
   }
-  
+
   /* Force colors to print */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     color-adjust: exact !important;
   }
-  
+
   /* Hide UI elements */
   .roman,
   .first,
@@ -260,8 +297,16 @@ html, body {
   .themes-panel,
   .download-section,
   .Dimxx,
-  .export {
+  .export,
+  .back-btn,
+  .previewX {
     display: none !important;
+  }
+
+  .preview-panel {
+    border: none;
+    padding: 0;
+    background: white;
   }
 }
 
@@ -272,25 +317,36 @@ html, body {
   .finale-container {
     flex-direction: column;
     padding: 15px;
+    gap: 15px;
   }
 
   .first {
     width: 100%;
     max-width: 100%;
+    max-height: none;
+    flex: unset;
+  }
+
+  .template-selection-section {
+    width: 100%;
   }
 
   .preview-panel {
     width: 100%;
+    max-height: none;
+    padding: 15px;
   }
 
   .resume-root {
     width: 100%;
     padding: 20px;
+    min-height: auto;
   }
 
   .roman {
     flex-direction: column;
     gap: 0.75rem;
+    align-items: stretch;
   }
 
   .export {
@@ -303,13 +359,18 @@ html, body {
 
   .bu {
     width: 100%;
+    min-width: unset;
   }
 }
 
 @media (max-width: 480px) {
+  .finale-container {
+    padding: 10px;
+  }
+
   .resume-root {
     padding: 16px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .template-grid {
@@ -319,4 +380,28 @@ html, body {
   .theme-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .finale-title {
+    font-size: 1.25rem;
+  }
+
+  .templates-panel,
+  .themes-panel,
+  .download-section {
+    padding: 1rem;
+  }
+}
+.bix{
+      display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.back-btnx{
+  background: none;
+    border: none;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
 }

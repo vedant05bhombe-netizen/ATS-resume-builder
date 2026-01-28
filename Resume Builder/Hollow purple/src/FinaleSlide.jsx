@@ -57,10 +57,10 @@ const TEMPLATE_DEFAULT_THEME = {
   Pulse: "black",
 };
 
-const FinaleSlide = ({ data }) => {
+const FinaleSlide = ({ data, onBack }) => {
   const [selectedTemplate, setSelectedTemplate] = useState("default");
   const [selectedTheme, setSelectedTheme] = useState("black");
-  const [switches, setswitches] = useState(false);
+  const [switches, setSwitches] = useState(false);
 
   const safeTheme = THEMES[selectedTheme] ? selectedTheme : "black";
 
@@ -72,12 +72,10 @@ const FinaleSlide = ({ data }) => {
   const SelectedTemplateComponent = TEMPLATE_COMPONENTS[selectedTemplate];
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-
   const downloadPDF = () => {
     window.print();
   };
 
-  
   const downloadDoc = async () => {
     if (!data) return;
 
@@ -257,10 +255,31 @@ const FinaleSlide = ({ data }) => {
     <div className="finale-container">
       {(!isMobile || !switches) && (
         <div className="first">
+          {onBack && (
+            <div className="bix">
+              <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 18l-6-6 6-6" />
+</svg>
+
+            <button className="back-btnx" onClick={onBack}>
+              Back
+            </button>
+            </div>
+          )}
           <h2 className="finale-title">Your Resume is Ready</h2>
           {isMobile && (
             <div>
-              <button onClick={() => setswitches(!switches)} className="Dimxx">
+              <button onClick={() => setSwitches(!switches)} className="preview">
                 See Resume
               </button>
             </div>
@@ -299,7 +318,7 @@ const FinaleSlide = ({ data }) => {
 
           <section className="download-section">
             <p>Click "Save as PDF" in the print dialog</p>
-            <p>Pdf is recommended word may break layout</p>
+            <p>PDF is recommended, Word may break layout</p>
             <div className="xene">
               <button className="bu" onClick={downloadPDF}>
                 Download PDF
@@ -316,7 +335,7 @@ const FinaleSlide = ({ data }) => {
         <section className="template-selection-section">
           {isMobile && (
             <div className="previewX">
-              <button onClick={() => setswitches(!switches)} className="Dimxx">
+              <button onClick={() => setSwitches(!switches)} className="preview">
                 Go back
               </button>
             </div>

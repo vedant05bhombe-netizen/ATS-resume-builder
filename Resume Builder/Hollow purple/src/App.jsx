@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import Template from './Template'
 import Help from './Help'
 import ATS from './ATS'
+import FinaleSlide from './FinaleSlide'
 
 function App() {
  
@@ -22,6 +23,7 @@ function App() {
       <Route path="/templateinfo" element={<Template />} />
       <Route path="/help" element={<Help />} />
       <Route path="/ats" element={<ATS />} />
+   
     </Routes>
      
     </>

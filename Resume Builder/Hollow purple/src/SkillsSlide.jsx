@@ -9,7 +9,7 @@ const SkillsSlide = ({ data = { skills: [] }, setData, onNext, onBack }) => {
 
 
 
-  const valid = input.trim() === "";
+  const valid = data.skills.map(item => item.trim()) === "";
 
   const inputRef = useRef(null);
   const suggestionRef = useRef(null);

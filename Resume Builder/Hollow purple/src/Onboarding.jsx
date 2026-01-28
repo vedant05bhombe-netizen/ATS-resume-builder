@@ -197,7 +197,7 @@ const Onboarding = () => {
         
       </div>
     ) : (
-      <FinaleSlide data={data} /> 
+      <FinaleSlide data={data} onBack={back} /> 
     )}
   </div>
 
