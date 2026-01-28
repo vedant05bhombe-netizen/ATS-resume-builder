@@ -15,6 +15,7 @@ import Stack from "./Stack";
 import Byte from "./Byte";
 import Apex from "./Apex";
 import Pulse from "./Pulse";
+import { trackEvent } from "./Analytics/ga4";
 
 import { THEMES } from "./data/Theme";
 
@@ -73,6 +74,7 @@ const FinaleSlide = ({ data, onBack }) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const downloadPDF = () => {
+    trackEvent("Export", "click", "resume_pdf_export");
     window.print();
   };
 
@@ -80,7 +82,7 @@ const FinaleSlide = ({ data, onBack }) => {
     if (!data) return;
 
     const sections = [];
-
+     trackEvent("Export", "click", "resume_pdf_export");
     if (data.name) {
       sections.push(
         new docx.Paragraph({

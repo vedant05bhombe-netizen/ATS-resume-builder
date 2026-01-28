@@ -5,7 +5,7 @@ import image1 from './Gemini_Generated_Image_bqn339bqn339bqn3-removebg-preview.p
 import image2 from './Gemini_Generated_Image_3731hv3731hv3731-removebg-preview.png';
 import image3 from './Gemini_Generated_Image_fttc7qfttc7qfttc-removebg-preview.png';
 import image4 from './Gemini_Generated_Image_28zhnl28zhnl28zh__1_-removebg-preview.png';
-
+import { trackEvent } from "./Analytics/ga4";
 const FAQSection = lazy(() => Promise.resolve({ default: FAQSectionComponent }));
 
 function FAQSectionComponent({ faqData }) {
@@ -131,10 +131,16 @@ export default function Front() {
               <li><a href="#features">Features</a></li>
               <li><a onClick={() => navigate('/help')}>Help</a></li>
             </ul>
-            <div onClick={() => navigate('/onboarding')} className='btn-primary'> 
-              Get Started
-              <span className="icon">→</span>
-            </div>
+           <div
+  className="btn-primary"
+  onClick={() => {
+    trackEvent("CTA", "click", "get_started_home");
+    navigate("/onboarding");
+  }}
+>
+  Get Started
+  <span className="icon">→</span>
+</div>
           </nav>
         </header>
 
@@ -150,10 +156,16 @@ export default function Front() {
                 Create a standout resume with our easy-to-use builder. Choose from{' '}
                 <a onClick={() => navigate('/templateinfo')}>professional templates</a>, customize your content, and download instantly.
               </p>
-              <div onClick={() => navigate('/onboarding')} className='cta-button'> 
-                Create My Resume - It's Free
-                <span className="icon">→</span>
-              </div>
+            <div
+  className="cta-button"
+  onClick={() => {
+    trackEvent("CTA", "click", "Create Resume - Home");
+    navigate("/onboarding");
+  }}
+>
+  Create My Resume - It's Free
+  <span className="icon">→</span>
+</div>
               <p className="hero-note">No Login required • Always free • We won't save your personal data</p>
               
               <div className="trust-grid">
@@ -298,11 +310,17 @@ export default function Front() {
               </div>
               
               <div className='checkX'>Check your ATS score for free</div>
-              <div className='check'>
-                <button onClick={() => navigate('/ats')
-                } className='cta-button'>Check ATS Score</button>
-              </div>
-
+             <div className="check">
+  <button
+    className="cta-button"
+    onClick={() => {
+      trackEvent("ATS", "click", "check_ats_score");
+      navigate("/ats");
+    }}
+  >
+    Check ATS Score
+  </button>
+</div>
               <div className="ats-features">
                 <h3>How Our Templates Pass ATS</h3>
                 <div className="ats-features-grid">
@@ -409,10 +427,16 @@ export default function Front() {
             <div className="cta-content">
               <h2>Ready to Build Your Professional Resume?</h2>
               <p>Start creating your resume now - it's completely free and takes just minutes</p>
-              <div onClick={() => navigate('/onboarding')} className='cta-button-large'> 
-                Start Building Now
-                <span className="icon">→</span>
-              </div>
+             <div
+  className="cta-button-large"
+  onClick={() => {
+    trackEvent("CTA", "click", "start_building_now");
+    navigate("/onboarding");
+  }}
+>
+  Start Building Now
+  <span className="icon">→</span>
+</div>
               <p className="cta-note">No registration required • Free forever • No credit card needed</p>
             </div>
           </section>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,10 +8,22 @@ import { Routes, Route } from "react-router-dom";
 import Template from './Template'
 import Help from './Help'
 import ATS from './ATS'
-import FinaleSlide from './FinaleSlide'
+import { useLocation } from 'react-router-dom'
+
+import { initGA, trackPage } from "./Analytics/ga4";
 
 function App() {
+  const location = useLocation();
+
+  
+  useEffect(() => {
+    initGA();
+  }, []);
+
  
+  useEffect(() => {
+    trackPage(location.pathname);
+  }, [location.pathname]);
 
 
 
