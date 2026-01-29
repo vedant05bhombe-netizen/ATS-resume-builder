@@ -30,6 +30,7 @@ export default function Front() {
   const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
   const [typewriterText, setTypewriterText] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const fullText = 'Free ATS-Friendly Resume Builder to Build a Professional Resume';
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -105,6 +106,11 @@ export default function Front() {
     }
   }, [currentIndex, fullText]);
 
+  const handleMobileNavClick = (callback) => {
+    setIsMobileMenuOpen(false);
+    callback();
+  };
+
   return (
     <>
       <title>Free ATS-Friendly Resume Builder | Hollow Purple</title>
@@ -126,22 +132,72 @@ export default function Front() {
         <header className={scrollY > 50 ? 'header scrolled' : 'header'}>
           <nav className="nav-container">
             <div className="logo">Hollow Purple</div>
+            
+            {/* Desktop Navigation */}
             <ul className="nav-links">
               <li><a className='anchor1' onClick={() => navigate('/templateinfo')}>Templates</a></li>
               <li><a href="#features">Features</a></li>
               <li><a onClick={() => navigate('/help')}>Help</a></li>
             </ul>
-           <div
-  className="btn-primary"
-  onClick={() => {
-    trackEvent("CTA", "click", "get_started_home");
-    navigate("/onboarding");
-  }}
->
-  Get Started
-  <span className="icon">→</span>
-</div>
+            
+            {/* Desktop CTA Button */}
+            <div
+              className="btn-primary desktop-cta"
+              onClick={() => {
+                trackEvent("CTA", "click", "get_started_home");
+                navigate("/onboarding");
+              }}
+            >
+              Get Started
+              <span className="icon">→</span>
+            </div>
+
+            {/* Mobile Hamburger Menu */}
+            <button 
+              className="mobile-menu-toggle"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}></span>
+            </button>
           </nav>
+
+          {/* Mobile Menu Dropdown */}
+          <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+            <ul className="mobile-nav-links">
+              <li>
+                <a onClick={() => handleMobileNavClick(() => navigate('/templateinfo'))}>
+                  Templates
+                </a>
+              </li>
+              <li>
+                <a onClick={() => handleMobileNavClick(() => {
+                  setIsMobileMenuOpen(false);
+                  const featuresSection = document.getElementById('features');
+                  featuresSection?.scrollIntoView({ behavior: 'smooth' });
+                })}>
+                  Features
+                </a>
+              </li>
+              <li>
+                <a onClick={() => handleMobileNavClick(() => navigate('/help'))}>
+                  Help
+                </a>
+              </li>
+              <li>
+                <div
+                  className="btn-primary mobile-cta"
+                  onClick={() => handleMobileNavClick(() => {
+                    trackEvent("CTA", "click", "get_started_home_mobile");
+                    navigate("/onboarding");
+                  })}
+                >
+                  Get Started
+                  <span className="icon">→</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </header>
 
         <main>
