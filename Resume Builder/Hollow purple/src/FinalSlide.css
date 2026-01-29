@@ -405,3 +405,19 @@ body {
     display: flex;
     justify-content: flex-start;
 }
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #resume-documentX,
+  #resume-documentX * {
+    visibility: visible;
+  }
+
+  #resume-documentX {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+  }
+}
